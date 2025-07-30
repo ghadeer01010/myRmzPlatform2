@@ -1,0 +1,47 @@
+@model List<Quiz>
+@{
+
+    ViewData["Title"] = "ادارة الاسئلة";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container mt-4">
+    <h2>ادارة اسئله الاختبار</h2>
+    <a asp-controller="Admin" asp-action="CreateQuiz" class="btn btn-primary mb-3">اضافة سؤال جديد</a>
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>السؤال</th>
+                <th>الخيار 1</th>
+                <th>الخيار 2</th>
+                <th>الخيار 3</th>
+                <th>الخيار 4</th>
+                <th>الخيار الصحيح</th>
+                <th>اللغة</th>
+                <th>خيارات</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Quiz in Model)
+            {
+                <tr>
+                    <td>@Quiz.QuestionText</td>
+                    <td>@Quiz.OptionA</td>
+                    <td>@Quiz.OptionB</td>
+                    <td>@Quiz.OptionC</td>
+                    <td>@Quiz.OptionD</td>
+                    <td>@Quiz.CorrectAnswer</td>
+                    <td>@Quiz.Language?.Name</td>
+                    <td>
+                        <a asp-controller="Admin" asp-action="EditQuiz" asp-route-id="@Quiz.Id" class="me-2"><i class="bi bi-pen-fill"></i></a>
+                        <a asp-action="DeleteQuiz" asp-route-id="@Quiz.Id"class="me-2"
+                            onclick="return confirm('هل أنت متأكد أنك تريد حذف هذا السؤال ؟');"><i class="bi bi-trash-fill"></i>
+                        </a>
+                    </td>
+
+
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>

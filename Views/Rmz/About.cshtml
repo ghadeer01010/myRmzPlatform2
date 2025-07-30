@@ -1,0 +1,106 @@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>لغات البرمجة - رمّز</title>
+
+    <!-- Bootstrap RTL + Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ✅ Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+    <div class="container d-flex justify-content-between flex-row-reverse">
+        <a class="navbar-brand" asp-controller="Rmz" asp-action="Index">
+            <img src="~/image/RmzLogo.svg" alt="رمّز Logo" width="100" height="100">
+        </a>
+        <button id="navbarToggle" class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+            <i class="bi bi-list toggle-icon" id="toggleIcon"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navContent">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" asp-area="Identity" asp-page="/Account/Login"><i class="bi bi-person-circle"></i> تسجيل الدخول</a></li>
+                <li class="nav-item"><a class="nav-link" asp-controller="Rmz" asp-action="Index"><i class="bi bi-house-door"></i> الرئيسية</a></li>
+                <li class="nav-item"><a class="nav-link" asp-controller="Rmz" asp-action="Languages"><i class="bi bi-code-slash"></i> اللغات</a></li>
+                <li class="nav-item"><a class="nav-link" asp-controller="Rmz" asp-action="About"><i class="bi bi-info-circle"></i> حول المنصة</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container section-padding">
+    <div class="hero-card mx-auto">
+        <h1 class="mb-4">حول منصة رمّز</h1>
+
+        <p class="lead">
+            منصة <strong>رمّز</strong> هي منصة تعليمية تهدف إلى تمكين المستخدمين من اختبار مهاراتهم البرمجية في مختلف لغات البرمجة مثل: <span class="text-light">C#، Python، JavaScript، Java، وغيرها.</span>
+        </p>
+
+        <p class="mt-4">
+            تم تصميم هذه المنصة لتكون بسيطة، سهلة الاستخدام، وجذابة بصريًا، حيث يمكن للمتعلمين الجدد والمطورين المحترفين الاستفادة منها لتقييم قدراتهم، والتعرف على نقاط القوة والضعف لديهم.
+        </p>
+
+        <div class="feature-card mt-4 text-start">
+            <h4>مميزات المنصة:</h4>
+            <ul class="mt-3">
+                <li>أسئلة متنوعة لكل لغة برمجة.</li>
+                <li>عرض النتيجة التفصيلية بعد الاختبار.</li>
+                <li>تصميم متجاوب وجذاب.</li>
+                <li>سهولة التنقل بين الصفحات.</li>
+                <li>دعم كامل للغة العربية.</li>
+            </ul>
+        </div>
+
+        <a asp-action="Languages" class="btn btn-gradient mt-4">
+            <i class="bi bi-arrow-left-circle"></i> ابدأ الاختبار الآن
+        </a>
+    </div>
+</div>
+
+<!-- ✅ Footer -->
+<footer class="footer mt-5 text-white py-4"><hr>
+    <div class="container text-center text-md-start">
+        <div class="row align-items-center">
+            <div class="col-md-6 mb-3 mb-md-0 text-md-start text-center">
+                <p class="mb-0">© 2025 رمّز - جميع الحقوق محفوظة</p>
+            </div>
+            <div class="col-md-6 text-md-end text-center">
+                <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="text-white me-3"><i class="bi bi-github"></i></a>
+                <a href="#" class="text-white"><i class="bi bi-envelope"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- ✅ Navbar toggle script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggleButton = document.getElementById('navbarToggle');
+        const toggleIcon = document.getElementById('toggleIcon');
+        const navContent = document.getElementById('navContent');
+
+        navContent.addEventListener('shown.bs.collapse', function () {
+            toggleIcon.classList.remove('bi-list');
+            toggleIcon.classList.add('bi-x');
+        });
+
+        navContent.addEventListener('hidden.bs.collapse', function () {
+            toggleIcon.classList.remove('bi-x');
+            toggleIcon.classList.add('bi-list');
+        });
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+@{
+    ViewData["Title"] = "لوحة التحكم";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-center bg-body-tertiary">لوحة تحكم المشرف</h2>
+
+ 
+        <!-- إدارة اللغات -->
+           <div class="row g-4 justify-content-center">
+        <div class="col-md-12">
+            <div class="card shadow border-0 h-100">
+                <div class="card-body text-center">
+                    <i class="bi bi-code-square display-3 text-primary mb-3"" ></i>
+                    <h5 class="card-title mb-3">إدارة لغات البرمجة</h5>
+                    <a asp-controller="Admin" asp-action="Language" class="btn btn-outline-primary w-100">
+                        أنتقل
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- إدارة الأسئلة -->
+        <div class="row g-4 justify-content-center">
+        <div class="col-md-12">
+            <div class="card shadow border-0 h-100">
+                <div class="card-body text-center">
+                    <i class="bi bi-question-circle display-4 text-success mb-3"></i>
+                    <h5 class="card-title mb-3">إدارة الأسئلة</h5>
+                    <a asp-controller="Admin" asp-action="Quiz" class="btn btn-outline-success w-100">
+                        أنتقل
+                    </a>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- نتائج المستخدمين -->
+        <div class="row g-4 justify-content-center">
+        <div class="col-md-12">
+            <div class="card shadow border-0 h-100">
+                <div class="card-body text-center">
+                    <i class="bi bi-bar-chart-line display-4 text-info mb-3"></i>
+                    <h5 class="card-title mb-3">نتائج المستخدمين</h5>
+                    <a asp-controller="Admin" asp-action="Result" class="btn btn-outline-info w-100">
+                       أنتقل
+                    </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

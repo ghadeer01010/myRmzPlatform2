@@ -1,0 +1,141 @@
+@model List<RmzPlatform.Models.Language>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>لغات البرمجة - رمّز</title>
+
+    <!-- Bootstrap RTL + Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ✅ Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+    <div class="container d-flex justify-content-between flex-row-reverse">
+        <a class="navbar-brand" asp-controller="Rmz" asp-action="Index">
+            <img src="~/image/RmzLogo.svg" alt="رمّز Logo" width="100" height="100">
+        </a>
+        <button id="navbarToggle" class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+            <i class="bi bi-list toggle-icon" id="toggleIcon"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navContent">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" asp-area="Identity" asp-page="/Account/Login"><i class="bi bi-person-circle"></i> تسجيل الدخول</a></li>
+                <li class="nav-item"><a class="nav-link" asp-controller="Rmz" asp-action="Index"><i class="bi bi-house-door"></i> الرئيسية</a></li>
+                <li class="nav-item"><a class="nav-link" asp-controller="Rmz" asp-action="Languages"><i class="bi bi-code-slash"></i> اللغات</a></li>
+                <li class="nav-item"><a class="nav-link" asp-controller="Rmz" asp-action="About"><i class="bi bi-info-circle"></i> حول المنصة</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+<section class="section-padding d-flex justify-content-center">
+    <div class="hero-card">
+        <h1>اختر لغة البرمجة</h1>
+        <p>ابدأ اختبارك في اللغة التي ترغب بها، وطوّر مهاراتك خطوة بخطوة.</p>
+    </div>
+</section>
+
+<section class="section-padding">
+    <div class="container">
+        <div class="row g-4 justify-content-center">
+
+            @foreach (var language in Model)
+            {
+                string icon = "bi-question-circle";
+                string color = "text-secondary";
+                
+
+                switch (language.Name.ToLower())
+                {
+                    case "python":
+                        icon = "bi bi-filetype-py";
+                        color = "text-info";
+                        break;
+                    case "javascript":
+                        icon = "bi bi-filetype-js";
+                        color = "text-warning";
+                        break;
+                    case "#c":
+                        icon = "bi bi-filetype-cs";
+                        color = "text-primary";
+                        break;
+                    case "java":
+                        icon = "bi bi-filetype-java";
+                        color = "text-danger";
+                        break;
+                    case "html":
+                        icon = "bi bi-filetype-html";
+                        color = "text-danger";
+                        break;
+                    case "css":
+                        icon = "bi bi-filetype-css";
+                        color = "text-danger";
+                        break;
+                }
+
+                int quizCount = language.Quiz?.Count ?? 0; // عدد الأسئلة لكل لغة
+
+                <div class="col-md-3 col-6">
+                    <a asp-controller="Rmz" asp-action="Start" asp-route-languageId="@language.Id" class="text-decoration-none">
+                        <div class="glass-card text-center">
+                            <i class="@icon display-6 @color"></i>
+                            <h5 class="mt-2">@language.Name (@quizCount سؤال)</h5>
+                        </div>
+                    </a>
+                </div>
+            }
+
+        </div>
+    </div>
+</section
+
+<!-- ✅ Footer -->
+<footer class="footer mt-5 text-white py-4"><hr>
+    <div class="container text-center text-md-start">
+        <div class="row align-items-center">
+            <div class="col-md-6 mb-3 mb-md-0 text-md-start text-center">
+                <p class="mb-0">© 2025 رمّز - جميع الحقوق محفوظة</p>
+            </div>
+            <div class="col-md-6 text-md-end text-center">
+                <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="text-white me-3"><i class="bi bi-github"></i></a>
+                <a href="#" class="text-white"><i class="bi bi-envelope"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- ✅ Navbar toggle script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggleButton = document.getElementById('navbarToggle');
+        const toggleIcon = document.getElementById('toggleIcon');
+        const navContent = document.getElementById('navContent');
+
+        navContent.addEventListener('shown.bs.collapse', function () {
+            toggleIcon.classList.remove('bi-list');
+            toggleIcon.classList.add('bi-x');
+        });
+
+        navContent.addEventListener('hidden.bs.collapse', function () {
+            toggleIcon.classList.remove('bi-x');
+            toggleIcon.classList.add('bi-list');
+        });
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

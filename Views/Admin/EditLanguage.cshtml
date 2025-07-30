@@ -1,0 +1,29 @@
+@model RmzPlatform.Models.Language
+@{
+    
+    ViewData["Title"] = "تعديل لغة";
+    Layout="~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2>تعديل لغة برمجية</h2>
+
+    <form asp-action="EditLanguage" method="post">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label">اسم اللغة</label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label">وصف اللغة</label>
+            <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">حفظ التعديلات</button>
+       <a asp-controller="Admin" asp-action="Language" class="btn btn-secondary">إلغاء</a>
+    </form>
+</div>

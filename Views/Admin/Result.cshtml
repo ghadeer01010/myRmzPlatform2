@@ -1,0 +1,58 @@
+@model List<RmzPlatform.Models.Result>
+
+@{
+    ViewData["Title"] = "نتائج المستخدمين";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-primary fw-bold">نتائج اختبارات المستخدمين</h2>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped text-center align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>#</th>
+                    <th>اسم المستخدم</th>
+                    <th>اللغة</th>
+                    <th>الدرجة</th>
+                    <th>عدد الأسئلة</th>
+                    <th>التاريخ</th>
+                    <th>الخيارات</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Count > 0)
+                {
+                    int index = 1;
+                    foreach (var result in Model)
+                    {
+                        <tr>
+                            <td>@index</td>
+                            <td>@result.UserName</td>
+                            <td>@result.Language?.Name</td>
+                            <td>@result.Score</td>
+                            <td>@result.TotalQuestions</td>
+                            <td>@result.Date.ToString("yyyy-MM-dd HH:mm")</td>
+                            <td>
+                                <div class="d-flex justify-content-center gap-2">
+                                    <a asp-action="ResultDetails" asp-route-id="@result.Id" class="btn btn-sm btn-outline-info">تفاصيل</a>
+                                    <a asp-action="DeleteResult" asp-route-id="@result.Id"
+                                       onclick="return confirm('هل أنت متأكد أنك تريد حذف هذه النتيجة؟');"
+                                       class="btn btn-sm btn-outline-danger">حذف</a>
+                                </div>
+                            </td>
+                        </tr>
+                        index++;
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="7" class="text-muted">لا توجد نتائج حتى الآن.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

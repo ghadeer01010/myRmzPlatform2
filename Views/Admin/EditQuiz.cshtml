@@ -1,0 +1,57 @@
+@model RmzPlatform.Models.Quiz
+
+@{
+    ViewData["Title"] = "تعديل سؤال";
+    
+    Layout="~/Views/Shared/_AdminLayout.cshtml";
+       var language = ViewBag.Language as List<RmzPlatform.Models.Language>;
+
+}
+
+<div class="container mt-4">
+    <h2>تعديل سؤال</h2>
+
+    <form asp-action="EditQuiz" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+            <label asp-for="QuestionText" class="form-label">السؤال</label>
+            <input asp-for="QuestionText" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="OptionA" class="form-label">الخيار 1</label>
+            <input asp-for="OptionA" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="OptionB" class="form-label">الخيار 2</label>
+            <input asp-for="OptionB" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="OptionC" class="form-label">الخيار 3</label>
+            <input asp-for="OptionC" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="OptionD" class="form-label">الخيار 4</label>
+            <input asp-for="OptionD" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="CorrectAnswer" class="form-label">الإجابة الصحيحة</label>
+            <input asp-for="CorrectAnswer" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="LanguageId" class="form-label">اختر اللغة</label>
+            <select asp-for="LanguageId" class="form-select" asp-items="@(new SelectList(language, "Id", "Name"))">
+                <option value="">-- اختر لغة --</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">حفظ التعديلات</button>
+        <a asp-controller="Admin" asp-action="Quiz" class="btn btn-secondary">رجوع</a>
+    </form>
+</div>
