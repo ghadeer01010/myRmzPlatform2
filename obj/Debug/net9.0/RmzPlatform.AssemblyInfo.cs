@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RmzPlatform")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+51686c9ac21c498da51cf5e5bb6fc6401eade861")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ec1c49f2e79daba9751973855929050bd8a398c8")]
 [assembly: System.Reflection.AssemblyProductAttribute("RmzPlatform")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RmzPlatform")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
