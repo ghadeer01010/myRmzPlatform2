@@ -11,12 +11,17 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), sqlOptions =>
+{
+    sqlOptions.EnableRetryOnFailure(
+        maxRetryCount: 5, // أقصى عدد محاولات
+        maxRetryDelay: TimeSpan.FromSeconds(10), // مدة الانتظار بين المحاولات
+        errorNumbersToAdd: null // أرقام الأخطاء الخاصة إذا أردت تخصيصها
+    );
+
+}));
 
 
 
@@ -40,7 +45,7 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=RMz}/{action=Index}/{id?}")
+    pattern: "{controller=Rmz}/{action=Index}/{id?}")
  
     .WithStaticAssets();
 

@@ -1,5 +1,17 @@
+F:\RmzPlatform\bin\Debug\net9.0\publish\publish\web.config
+F:\RmzPlatform\bin\Debug\net9.0\publish\web.config
 F:\RmzPlatform\bin\Debug\net9.0\appsettings.Development.json
 F:\RmzPlatform\bin\Debug\net9.0\appsettings.json
+F:\RmzPlatform\bin\Debug\net9.0\publish\appsettings.Development.json
+F:\RmzPlatform\bin\Debug\net9.0\publish\appsettings.json
+F:\RmzPlatform\bin\Debug\net9.0\publish\publish\appsettings.Development.json
+F:\RmzPlatform\bin\Debug\net9.0\publish\publish\appsettings.json
+F:\RmzPlatform\bin\Debug\net9.0\publish\publish\RmzPlatform.deps.json
+F:\RmzPlatform\bin\Debug\net9.0\publish\publish\RmzPlatform.runtimeconfig.json
+F:\RmzPlatform\bin\Debug\net9.0\publish\publish\RmzPlatform.staticwebassets.endpoints.json
+F:\RmzPlatform\bin\Debug\net9.0\publish\RmzPlatform.deps.json
+F:\RmzPlatform\bin\Debug\net9.0\publish\RmzPlatform.runtimeconfig.json
+F:\RmzPlatform\bin\Debug\net9.0\publish\RmzPlatform.staticwebassets.endpoints.json
 F:\RmzPlatform\bin\Debug\net9.0\RmzPlatform.staticwebassets.runtime.json
 F:\RmzPlatform\bin\Debug\net9.0\RmzPlatform.staticwebassets.endpoints.json
 F:\RmzPlatform\bin\Debug\net9.0\RmzPlatform.exe
